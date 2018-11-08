@@ -20,6 +20,8 @@ Route::prefix('tasks')->group(function() {
 
     Route::get('{id}', ['uses' => 'TaskController@getTaskById']);
 
+    Route::delete('{id}', ['uses' => 'TaskController@deleteTask']);
+
 });
 
 

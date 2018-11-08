@@ -18,5 +18,11 @@ class TaskController extends Controller
 
     public function addTask(Request $request) {
         Task::create($request->all());
+        return redirect('/');
+    }
+
+    public function deleteTask($id) {
+        Task::find($id)->delete();
+        return redirect('/');
     }
 }
