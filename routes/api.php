@@ -12,15 +12,14 @@ use App\Task;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::prefix('tasks')->group(function() {
 
-Route::get('tasks', function() {
-   return Task::all();
+    Route::get('', 'TaskController@getTasks');
+
+    Route::post('', 'TaskController@addTask');
+
+    Route::get('{id}', ['uses' => 'TaskController@getTaskById']);
+
 });
 
-Route::post('tasks', function(Request $request) {
-    return Task::create($request->all);
-});
-Route::get('tasks/{task_id}', function($task_id) {
-   return Task::find($task_id);
-});
 
