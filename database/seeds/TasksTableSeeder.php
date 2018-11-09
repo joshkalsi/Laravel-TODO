@@ -18,7 +18,8 @@ class TasksTableSeeder extends Seeder
         for ($i = 0; $i < 5; $i++) {
             Task::create([
                 'name' => $faker->sentence,
-                'due_at' => $faker->time(),
+                'due_at' => $faker->date(),
+                'completed' => $faker->boolean(),
             ]);
         }
     }
