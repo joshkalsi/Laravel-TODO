@@ -25,4 +25,17 @@ class TaskController extends Controller
         Task::find($id)->delete();
         return redirect('/');
     }
+
+    public function toggleTaskCompleted($id) {
+        $task =Task::find($id);
+
+        if ($task->completed) {
+            $task->completed = false;
+            $task->save();
+        } else {
+            $task->completed = true;
+            $task->save();
+        }
+        return redirect('/');
+    }
 }

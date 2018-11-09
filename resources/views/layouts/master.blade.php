@@ -18,12 +18,6 @@
             border-bottom-right-radius: 1em;
         }
     </style>
-
-    <script>
-        const markDone = (id) => {
-            document.getElementById('')
-        }
-    </script>
 </head>
 <body>
 
