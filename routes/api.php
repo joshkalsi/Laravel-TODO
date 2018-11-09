@@ -11,16 +11,12 @@
 */
 Route::prefix('tasks')->group(function() {
 
-    Route::get('', 'TaskController@getTasks');
+    Route::post('', 'TaskController@addTask')->name('task.create');
 
-    Route::post('', 'TaskController@addTask');
+    Route::delete('{task}', 'TaskController@deleteTask')->name('task.destroy');
 
-    Route::get('{id}', ['uses' => 'TaskController@getTaskById']);
+    Route::patch('{task}', 'TaskController@toggleTaskCompleted')->name('task.toggle');
 
-    Route::delete('{id}', ['uses' => 'TaskController@deleteTask']);
-
-    Route::patch('{$id}', ['uses' => 'TaskController@toggleTaskCompleted']);
-
+    Route::put('{task}', 'TaskController@update')->name('task.update');
 });
-
 

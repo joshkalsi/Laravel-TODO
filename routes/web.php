@@ -11,4 +11,12 @@
 |
 */
 
-Route::get('', 'HomeController@index');
+Route::get('', function () {
+ return redirect('tasks');
+});
+
+Route::get('tasks', 'TaskController@index')->name('task.index');
+
+Route::get('tasks/{task}', 'TaskController@show')->name('task.show');
+
+Route::get('tasks/{task}/edit', 'TaskController@edit')->name('task.edit');
