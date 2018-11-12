@@ -15,11 +15,11 @@
             @method('put')
             <div class="form-group">
                 <label class="lb-lg" for="name">Edit Task</label>
-                <input name="name" type="text" class="form-control form-control-lg" placeholder="{{ $task->name }}" required>
+                <input name="name" type="text" dusk="edit-name" class="form-control form-control-lg" value="{{ $task->name }}" required>
             </div>
             <div class="form-group">
                 <label class="lb-lg" for="name">Edit Due Date</label>
-                <input type="date" name="due_at" class="form-control form-control-lg" placeholder="{{ $task->due_at->format('Y-m-d') }}" required>
+                <input type="date" name="due_at" dusk="edit-due_at" class="form-control form-control-lg" value="{{ $task->due_at->format('Y-m-d') }}" required>
             </div>
                 <button type="submit" class="btn btn-light btn-outline-dark btn-block">Save</button>
         </form>

@@ -20,7 +20,7 @@
         @elseif ($task->due_at->isPast()) <h3 class="text-danger">Overdue</h3>
         @endif
         <br>
-        <a class="btn btn-light btn-outline-dark btn-lg btn-block" href="{{ route('task.edit', [$task]) }}">Edit</a>
+        <a class="btn btn-light btn-outline-dark btn-lg btn-block" dusk="edit" href="{{ route('task.edit', [$task]) }}">Edit</a>
         <br>
         <form action="{{route('task.destroy', [$task]) }}" method="post">
             @method('delete')
