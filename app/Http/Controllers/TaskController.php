@@ -25,7 +25,7 @@ class TaskController extends Controller
 
     public function addTask(Request $request) {
         Task::create($request->all());
-        return redirect('/');
+        return back();
     }
 
     public function deleteTask(Task $task) {
@@ -42,7 +42,7 @@ class TaskController extends Controller
             $task->completed = true;
             $task->save();
         }
-        return redirect('/');
+        return back();
     }
 
     public function edit(Task $task) {
@@ -60,6 +60,6 @@ class TaskController extends Controller
 //        $task->name = $request->input('name');
 //        $task->due_at = $request->input('due_at');
 //        $task->save();
-        return back();
+        return redirect(route('task.show', [$task]));
     }
 }
