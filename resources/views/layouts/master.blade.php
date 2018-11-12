@@ -17,8 +17,11 @@
             border-bottom-left-radius: 1em;
             border-bottom-right-radius: 1em;
         }
-        .lb-lg {
-            font-size: 20px;
+        a {
+            color: inherit;
+        }
+        a:hover {
+            text-decoration: none;
         }
     </style>
 </head>
