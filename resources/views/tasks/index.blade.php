@@ -18,14 +18,19 @@
                 <input class="btn btn-primary" type="submit" value="Add Task">
             </div>
         </form>
+
     </div>
 @stop
 
 @section('content')
     <div class="container p-3">
-        <ul class="list-group">
+       <button class="btn btn-primary float-right"  data-toggle="button" id="completed-display-toggle" onclick="toggleCompletedDisplay()">Show Completed Tasks</button>
+        <br>
+        <br>
+
+        <ul class="list-group float-none">
             @foreach ($tasks as $task)
-                <div class="list-group-item">
+                <div class="list-group-item @if ($task->completed) completed @endif">
                     <div class="row align-items-center">
                         <div class="col-9">
                             <a dusk="task" href="{{ route('task.show', [$task]) }}">
@@ -59,5 +64,13 @@
             @endforeach
         </ul>
     </div>
+
+    <script>
+        function toggleCompletedDisplay() {
+            $("div.completed").toggle();
+            // $("#completed-display-toggle").addClass()
+
+        }
+    </script>
 @stop
 
