@@ -1,7 +1,4 @@
 <?php
-
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -12,7 +9,14 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::prefix('tasks')->group(function() {
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+    Route::post('', 'TaskController@addTask')->name('task.create');
+
+    Route::delete('{task}', 'TaskController@deleteTask')->name('task.destroy');
+
+    Route::patch('{task}', 'TaskController@toggleTaskCompleted')->name('task.toggle');
+
+    Route::put('{task}', 'TaskController@update')->name('task.update');
 });
+
